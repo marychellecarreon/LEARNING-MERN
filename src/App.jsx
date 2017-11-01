@@ -23,13 +23,18 @@ class IssueFilter extends React.Component {
 
 class IssueRow extends React.Component {
    render() {
-      const borderedStyle = {border:  "1px solid silver", padding: 4};
-    return (
-      <tr>
-        <td style={borderedStyle}>{this.props.issue_id}</td>
-        <td style={borderedStyle}>{this.props.children}</td>
-      </tr>
-    )
+     const issue = this.props.issue;
+     return (
+       <tr>
+         <td>{issue.id}</td>
+         <td>{issue.status}</td>
+         <td>{issue.owner}</td>
+         <td>{issue.created.toDateString()}</td>
+         <td>{issue.effort}</td>
+         <td>{issue.completionDate ? issue.completionDate.toDateString() : ''}</td>
+         <td>{issue.title}</td>
+        </tr>
+     )
    }
 }
 
@@ -70,7 +75,7 @@ class IssueList extends React.Component {
          <h1>Issue Tracker</h1>
          <IssueFilter />
          <hr />
-         <IssueTable issues={issues} />
+         <IssueTable issues = {issues }/>
          <hr />
          <IssueAdd />
          </div>

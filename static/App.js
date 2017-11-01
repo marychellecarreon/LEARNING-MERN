@@ -55,19 +55,44 @@ var IssueRow = function (_React$Component2) {
   _createClass(IssueRow, [{
     key: 'render',
     value: function render() {
-      var borderedStyle = { border: "1px solid silver", padding: 4 };
+      var issue = this.props.issue;
       return React.createElement(
         'tr',
         null,
         React.createElement(
           'td',
-          { style: borderedStyle },
-          this.props.issue_id
+          null,
+          issue.id
         ),
         React.createElement(
           'td',
-          { style: borderedStyle },
-          this.props.children
+          null,
+          issue.status
+        ),
+        React.createElement(
+          'td',
+          null,
+          issue.owner
+        ),
+        React.createElement(
+          'td',
+          null,
+          issue.created.toDateString()
+        ),
+        React.createElement(
+          'td',
+          null,
+          issue.effort
+        ),
+        React.createElement(
+          'td',
+          null,
+          issue.completionDate ? issue.completionDate.toDateString() : ''
+        ),
+        React.createElement(
+          'td',
+          null,
+          issue.title
         )
       );
     }
